@@ -12,11 +12,10 @@ class MusicDatabase {
     private val songCollecton = firestore.collection(SONG_COLLECTION)
 
 
-    suspend fun getAllSongs() : List<Song>{
+    suspend fun getAllSongs(): List<Song> {
         return try {
             songCollecton.get().await().toObjects(Song::class.java)
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             emptyList()
         }
     }
