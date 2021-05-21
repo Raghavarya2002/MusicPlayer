@@ -10,13 +10,13 @@ import com.example.musicplayer.other.Constants.NOTIFICATION_ID
 import com.google.android.exoplayer2.ui.PlayerNotificationManager
 
 class MusicNotificationManager(
-    private val  context: Context,
+    private val context: Context,
     sessionToken: MediaSessionCompat.Token,
     notificationListener: PlayerNotificationManager.NotificationListener,
-    private val newSongCallback : () -> Unit
- ) {
+    private val newSongCallback: () -> Unit
+) {
 
-    private val notificationManager : PlayerNotificationManager
+    private val notificationManager: PlayerNotificationManager
 
     init {
         val mediaController = MediaControllerCompat(context, sessionToken)
