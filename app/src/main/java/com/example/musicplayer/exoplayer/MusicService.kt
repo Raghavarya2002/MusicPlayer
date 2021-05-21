@@ -34,6 +34,8 @@ class MusicService : MediaBrowserServiceCompat() {
     private lateinit var mediaSession: MediaSessionCompat
     private lateinit var mediaSessionConnector: MediaSessionConnector
 
+    var isForegroundService = false
+
 
     override fun onCreate() {
         super.onCreate()
