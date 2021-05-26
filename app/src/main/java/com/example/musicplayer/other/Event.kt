@@ -11,6 +11,7 @@ open class Event<out T>(private val data: T) {
         } else {
             hasBeenHandled = true
             data
+
         }
     }
 
