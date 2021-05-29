@@ -39,7 +39,6 @@ class MusicServiceConnection(context: Context) {
         ComponentName(
             context,
             MusicService::class.java
-
         ),
         mediaBrowserConnectionCallback,
         null
@@ -65,7 +64,6 @@ class MusicServiceConnection(context: Context) {
                 registerCallback(MediaControllerCallback())
             }
             _isConnected.postValue(Event(Resource.success(true)))
-
         }
 
         override fun onConnectionSuspended() {
