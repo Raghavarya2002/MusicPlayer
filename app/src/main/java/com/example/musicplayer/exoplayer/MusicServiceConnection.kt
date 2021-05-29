@@ -38,15 +38,24 @@ class MusicServiceConnection(context: Context) {
         context,
         ComponentName(
             context,
-            MusicService::class.java,
+            MusicService::class.java
 
-            ),
+        ),
         mediaBrowserConnectionCallback,
         null
-    )
+    ).apply { connect() }
 
     val transportControls: MediaControllerCompat.TransportControls
         get() = mediaController.transportControls
+
+
+    fun subscribe(parentId: String, callback: MediaBrowserCompat.SubscriptionCallback) {
+        mediaBrowser.subscribe(parentId, callback)
+    }
+
+    fun unsubscribe(parentId: String, callback: MediaBrowserCompat.SubscriptionCallback) {
+        mediaBrowser.unsubscribe(parentId, callback)
+    }
 
     private inner class MediaBrowserConnectionCallback(
         private val context: Context
