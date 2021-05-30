@@ -46,6 +46,7 @@ class MainViewModel @ViewModelInject constructor(
 
                         )
                     }
+                    _mediaItems.postValue(Resource.success(items))
                 }
             })
     }
@@ -54,4 +55,3 @@ class MainViewModel @ViewModelInject constructor(
 }
 
 
-}
