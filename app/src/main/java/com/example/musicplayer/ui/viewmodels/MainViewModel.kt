@@ -49,7 +49,6 @@ class MainViewModel @ViewModelInject constructor(
                             it.description.subtitle.toString(),
                             it.description.mediaUri.toString(),
                             it.description.iconUri.toString()
-
                         )
                     }
                     _mediaItems.postValue(Resource.success(items))
