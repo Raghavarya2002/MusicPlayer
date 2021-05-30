@@ -23,7 +23,6 @@ object AppModule {
         @ApplicationContext context: Context
     ) = MusicServiceConnection(context)
 
-
     @Singleton
     @Provides
     fun provideGlideInstance(

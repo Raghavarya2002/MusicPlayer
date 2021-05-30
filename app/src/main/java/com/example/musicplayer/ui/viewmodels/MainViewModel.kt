@@ -94,7 +94,6 @@ class MainViewModel @ViewModelInject constructor(
         musicServiceConnection.unsubscribe(
             MEDIA_ROOT_ID,
             object : MediaBrowserCompat.SubscriptionCallback() {
-
             })
     }
 
