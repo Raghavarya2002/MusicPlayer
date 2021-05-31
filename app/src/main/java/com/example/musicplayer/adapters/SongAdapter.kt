@@ -17,7 +17,7 @@ class SongAdapter @Inject constructor(
 
     private val glide: RequestManager
 
-) : RecyclerView.Adapter<SongAdapter.SongViewHolder> {
+) : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
 
     class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -48,6 +48,7 @@ class SongAdapter @Inject constructor(
         )
     }
 
+
     override fun getItemCount(): Int {
         return songs.size
     }
@@ -59,6 +60,20 @@ class SongAdapter @Inject constructor(
             tvSecondary.text = song.subtitle
 
             glide.load(song.imageUrl).into(ivItemImage)
+
+            setOnClickListener {
+                onItemClickListener?.let { click ->
+                    click(song)
+                }
+            }
+
+
         }
+    }
+
+    private var onItemClickListener: ((Song) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Song) -> Unit) {
+        onItemClickListener = listener
     }
 }
