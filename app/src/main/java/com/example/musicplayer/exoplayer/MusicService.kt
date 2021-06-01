@@ -81,11 +81,6 @@ class MusicService : MediaBrowserServiceCompat() {
             mediaSession.sessionToken,
             MusicPlayerNotificationListener(this)
         )
-        {
-
-            curSongDuration = exoPlayer.duration
-
-        }
 
         val musicPlaybackPrepare = MusicPlaybackPreparer(firebaseMusicSource) {
             curPlayingSong = it
@@ -121,7 +116,7 @@ class MusicService : MediaBrowserServiceCompat() {
         playnow: Boolean
     ) {
 
-        var curSongIndex = if (curPlayingSong == null) 0 else songs.indexOf(itemToPlay)
+        val curSongIndex = if (curPlayingSong == null) 0 else songs.indexOf(itemToPlay)
         exoPlayer.prepare(firebaseMusicSource.asMediaSource(dataSourceFactory))
         exoPlayer.seekTo(curSongIndex, 0L)
         exoPlayer.playWhenReady = playnow

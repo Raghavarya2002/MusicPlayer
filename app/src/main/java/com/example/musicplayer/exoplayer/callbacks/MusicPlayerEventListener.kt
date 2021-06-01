@@ -5,6 +5,7 @@ import com.example.musicplayer.exoplayer.MusicService
 import com.google.android.exoplayer2.ExoPlaybackException
 import com.google.android.exoplayer2.Player
 
+
 class MusicPlayerEventListener(
     private val musicService: MusicService
 ) : Player.EventListener {

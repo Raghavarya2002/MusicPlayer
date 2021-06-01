@@ -1,6 +1,5 @@
 package com.example.musicplayer.exoplayer
 
-import android.media.session.PlaybackState
 import android.support.v4.media.session.PlaybackStateCompat
 
 inline val PlaybackStateCompat.isPrepared

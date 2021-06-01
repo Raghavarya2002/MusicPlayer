@@ -18,8 +18,7 @@ import com.google.android.exoplayer2.ui.PlayerNotificationManager
 class MusicNotificationManager(
     private val context: Context,
     sessionToken: MediaSessionCompat.Token,
-    notificationListener: PlayerNotificationManager.NotificationListener,
-    private val newSongCallback: () -> Unit
+    notificationListener: PlayerNotificationManager.NotificationListener
 ) {
 
     private val notificationManager: PlayerNotificationManager
@@ -65,29 +64,19 @@ class MusicNotificationManager(
             player: Player,
             callback: PlayerNotificationManager.BitmapCallback
         ): Bitmap? {
-
             Glide.with(context).asBitmap()
                 .load(mediaController.metadata.description.iconUri)
                 .into(object : CustomTarget<Bitmap>() {
-
-                    override fun onLoadCleared(placeholder: Drawable?) = Unit
-
                     override fun onResourceReady(
                         resource: Bitmap,
                         transition: Transition<in Bitmap>?
                     ) {
                         callback.onBitmap(resource)
-
-
                     }
 
-
-                } {
-
-
+                    override fun onLoadCleared(placeholder: Drawable?) = Unit
                 })
             return null
-
         }
 
 
