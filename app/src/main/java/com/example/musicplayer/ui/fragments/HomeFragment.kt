@@ -33,7 +33,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             mainViewModel.playOrToggleSong(it)
         }
 
-    } //3706
+    } //3706 not working due to gcp programme till 10th june
 
     private fun setupRecyclerView() = rvAllSongs.apply {
         adapter = songAdapter
