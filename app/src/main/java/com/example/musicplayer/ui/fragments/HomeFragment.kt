@@ -34,6 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
     } //3706 not working due to gcp programme till 10th june
+    //so , I,m back at my work , finally I completed my gcp target in this break(10days),now its 21:27 , so , I'll continue tomorrow :)I
 
     private fun setupRecyclerView() = rvAllSongs.apply {
         adapter = songAdapter
