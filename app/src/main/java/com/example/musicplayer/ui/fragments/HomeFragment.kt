@@ -34,7 +34,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-
     private fun setupRecyclerView() = rvAllSongs.apply {
         adapter = songAdapter
         layoutManager = LinearLayoutManager(requireContext())
