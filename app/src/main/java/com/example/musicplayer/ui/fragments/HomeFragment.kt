@@ -32,8 +32,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         songAdapter.setOnItemClickListener {
             mainViewModel.playOrToggleSong(it)
         }
-
     }
+
+
     private fun setupRecyclerView() = rvAllSongs.apply {
         adapter = songAdapter
         layoutManager = LinearLayoutManager(requireContext())
