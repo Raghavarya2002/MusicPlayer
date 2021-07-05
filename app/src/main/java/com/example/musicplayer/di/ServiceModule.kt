@@ -18,11 +18,9 @@ import dagger.hilt.android.scopes.ServiceScoped
 @InstallIn(ServiceComponent::class)
 object ServiceModule {
 
-
     @ServiceScoped
     @Provides
     fun provideMusicDatabase() = MusicDatabase()
-
 
     @ServiceScoped
     @Provides
@@ -30,7 +28,6 @@ object ServiceModule {
         .setContentType(C.CONTENT_TYPE_MUSIC)
         .setUsage(C.USAGE_MEDIA)
         .build()
-
 
     @ServiceScoped
     @Provides
@@ -40,7 +37,6 @@ object ServiceModule {
     ) = SimpleExoPlayer.Builder(context).build().apply {
         setAudioAttributes(audioAttributes, true)
         setHandleAudioBecomingNoisy(true)
-
     }
 
     @ServiceScoped
@@ -48,5 +44,4 @@ object ServiceModule {
     fun provideDataSourceFactory(
         @ApplicationContext context: Context
     ) = DefaultDataSourceFactory(context, Util.getUserAgent(context, "Spotify App"))
-
 }

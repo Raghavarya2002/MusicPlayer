@@ -13,13 +13,11 @@ class MusicPlayerNotificationListener(
 
     override fun onNotificationCancelled(notificationId: Int, dismissedByUser: Boolean) {
         super.onNotificationCancelled(notificationId, dismissedByUser)
-
         musicService.apply {
             stopForeground(true)
             isForegroundService = false
             stopSelf()
         }
-
     }
 
     override fun onNotificationPosted(
@@ -28,7 +26,6 @@ class MusicPlayerNotificationListener(
         ongoing: Boolean
     ) {
         super.onNotificationPosted(notificationId, notification, ongoing)
-
         musicService.apply {
             if (ongoing && !isForegroundService) {
                 ContextCompat.startForegroundService(
@@ -37,9 +34,7 @@ class MusicPlayerNotificationListener(
                 )
                 startForeground(NOTIFICATION_ID, notification)
                 isForegroundService = true
-
             }
         }
-
     }
 }

@@ -9,12 +9,11 @@ import java.lang.Exception
 class MusicDatabase {
 
     private val firestore = FirebaseFirestore.getInstance()
-    private val songCollecton = firestore.collection(SONG_COLLECTION)
-
+    private val songCollection = firestore.collection(SONG_COLLECTION)
 
     suspend fun getAllSongs(): List<Song> {
         return try {
-            songCollecton.get().await().toObjects(Song::class.java)
+            songCollection.get().await().toObjects(Song::class.java)
         } catch (e: Exception) {
             emptyList()
         }

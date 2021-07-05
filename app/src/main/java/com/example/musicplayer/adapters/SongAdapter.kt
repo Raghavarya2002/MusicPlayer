@@ -13,9 +13,7 @@ import kotlinx.android.synthetic.main.list_item.view.*
 import javax.inject.Inject
 
 class SongAdapter @Inject constructor(
-
     private val glide: RequestManager
-
 ) : RecyclerView.Adapter<SongAdapter.SongViewHolder>() {
 
     class SongViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -42,14 +40,8 @@ class SongAdapter @Inject constructor(
                 R.layout.list_item,
                 parent,
                 false
-
             )
         )
-    }
-
-
-    override fun getItemCount(): Int {
-        return songs.size
     }
 
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
@@ -57,7 +49,6 @@ class SongAdapter @Inject constructor(
         holder.itemView.apply {
             tvPrimary.text = song.title
             tvSecondary.text = song.subtitle
-
             glide.load(song.imageUrl).into(ivItemImage)
 
             setOnClickListener {
@@ -65,8 +56,6 @@ class SongAdapter @Inject constructor(
                     click(song)
                 }
             }
-
-
         }
     }
 
@@ -75,4 +64,9 @@ class SongAdapter @Inject constructor(
     fun setOnItemClickListener(listener: (Song) -> Unit) {
         onItemClickListener = listener
     }
+
+    override fun getItemCount(): Int {
+        return songs.size
+    }
 }
+

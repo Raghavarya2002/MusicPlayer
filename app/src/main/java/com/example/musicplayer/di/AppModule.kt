@@ -1,6 +1,5 @@
 package com.example.musicplayer.di
 
-import android.app.Application
 import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -20,7 +19,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesMusicServiceConnection(
+    fun provideMusicServiceConnection(
         @ApplicationContext context: Context
     ) = MusicServiceConnection(context)
 
@@ -34,5 +33,4 @@ object AppModule {
             .error(R.drawable.ic_image)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
     )
-
 }
